@@ -1,0 +1,97 @@
+{
+  "header": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "services": "Services",
+    "howItWorks": "How It Works",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "profile": "Profile"
+  },
+  "footer": {
+    "aboutUs": "About Us",
+    "contact": "Contact Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "faq": "FAQs",
+    "careers": "Careers"
+  },
+  "home": {
+    "hero": {
+      "title": "Connecting Skill. Creating Opportunity.",
+      "subtitle": "India's premier platform for skilled blue-collar workers and employers",
+      "workerBtn": "I'm a Worker",
+      "employerBtn": "I'm an Employer"
+    },
+    "features": {
+      "title": "Features",
+      "matching": "Smart job matching",
+      "location": "Location-based worker search",
+      "chat": "In-app chat",
+      "portfolio": "Skill video portfolio",
+      "badges": "Verified skill badges",
+      "availability": "Real-time availability",
+      "insurance": "Micro insurance",
+      "reviews": "Verified reviews"
+    },
+    "professions": {
+      "title": "Blue-Collar Professions",
+      "electrician": "Electrician",
+      "plumber": "Plumber",
+      "carpenter": "Carpenter",
+      "welder": "Welder",
+      "painter": "Painter",
+      "driver": "Driver",
+      "gardener": "Gardner",
+      "mason": "Mason",
+      "construction": "Construction worker",
+      "officeboy": "Office boy",
+      "mechanic": "Mechanic",
+      "cook": "Cook",
+      "delivery": "Delivery boy",
+      "lift": "Lift technician"
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "workerTestimonial": "BlueForce helped me find consistent work and improved my earnings by 40%.",
+      "employerTestimonial": "Finding reliable skilled workers was a challenge until we discovered BlueForce."
+    },
+    "whyUs": {
+      "title": "Why BlueForce?",
+      "value": "Value",
+      "accessibility": "Accessibility",
+      "trust": "Trust",
+      "empowerment": "Empowerment"
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "workerRegister": "Register as Worker",
+    "employerRegister": "Register as Employer"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "workerTitle": "For Workers",
+    "employerTitle": "For Employers",
+    "worker": {
+      "step1": "Create your profile",
+      "step2": "Upload skills & certifications",
+      "step3": "Complete verification",
+      "step4": "Set availability & get hired"
+    },
+    "employer": {
+      "step1": "Create job post",
+      "step2": "Browse qualified workers",
+      "step3": "Chat & hire",
+      "step4": "Pay & review"
+    }
+  }
+}
