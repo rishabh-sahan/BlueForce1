@@ -84,11 +84,7 @@ declare global {
 export const registerUser = (user: Omit<User, 'id' | 'registeredDate' | 'lastActive'>): User => {
   const users = getUsers();
   
-  // Check if email already exists
-  if (users.some(u => u.email === user.email)) {
-    throw new Error('Email already exists');
-  }
-  
+  // Create new user without validation
   const newUser: User = {
     ...user,
     id: users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1,
@@ -102,13 +98,10 @@ export const registerUser = (user: Omit<User, 'id' | 'registeredDate' | 'lastAct
 
 // Login user
 export const loginUser = (email: string): User | null => {
-  // In a real app, we would validate the password against a hashed version
-  // For this demo, we'll use a simplified login that succeeds for any combination
-  
   const users = getUsers();
   let user = users.find(u => u.email === email);
   
-  // If user doesn't exist, create a temporary one for demo purposes
+  // Create a new user if doesn't exist
   if (!user) {
     user = {
       id: users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1,
@@ -120,13 +113,7 @@ export const loginUser = (email: string): User | null => {
     localStorage.setItem(USERS_KEY, JSON.stringify([...users, user]));
   }
   
-  // Update last active
-  const updatedUsers = users.map(u => 
-    u.id === user.id ? { ...u, lastActive: new Date().toISOString().split('T')[0] } : u
-  );
-  localStorage.setItem(USERS_KEY, JSON.stringify(updatedUsers));
-  
-  // Set current user
+  // Set current user and return
   localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
   return user;
 };

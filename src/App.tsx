@@ -17,6 +17,14 @@ import IndividualProfile from './pages/IndividualProfile';
 import EmployerType from './pages/EmployerType';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
+import WorkerDashboard from './pages/WorkerDashboard';
+import EmployerDashboard from './pages/EmployerDashboard';
+import BrowseWorkers from './pages/BrowseWorkers';
+import MassHiringDemo from './pages/MassHiringDemo';
+import AnalyticsDemo from './pages/AnalyticsDemo';
+import MessagingDemo from './pages/MessagingDemo';
+import TemporaryEmployerProfile from './pages/TemporaryEmployerProfile';
+import TemporaryWorkerProfile from './pages/TemporaryWorkerProfile';
 
 // Admin pages
 import AdminLogin from './pages/admin/AdminLogin';
@@ -76,6 +84,14 @@ function App() {
             <Route path="/individual-profile" element={<IndividualProfile />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/worker-dashboard" element={<WorkerDashboard />} />
+            <Route path="/employer-dashboard" element={<EmployerDashboard />} />
+            <Route path="/browse-workers" element={<BrowseWorkers />} />
+            <Route path="/mass-hiring-demo" element={<MassHiringDemo />} />
+            <Route path="/analytics-demo" element={<AnalyticsDemo />} />
+            <Route path="/messaging-demo" element={<MessagingDemo />} />
+            <Route path="/temporary-employer-profile" element={<TemporaryEmployerProfile />} />
+            <Route path="/temporary-worker-profile" element={<TemporaryWorkerProfile />} />
             
             {/* Admin Routes */}
             <Route path="/admin/login" element={<AdminLogin />} />

@@ -27,16 +27,17 @@ const Login = () => {
     setIsLoading(true);
     setError('');
 
-    setTimeout(() => {
+    try {
+      // Bypass validation and continue directly
       const user = loginUser(email);
-      setIsLoading(false);
-      
       if (user) {
+        setIsLoading(false);
         navigate('/profile');
-      } else {
-        setError('Invalid email or password. Please use email: user@example.com and password: password123');
       }
-    }, 800);
+    } catch (err) {
+      setIsLoading(false);
+      setError((err as Error).message);
+    }
   };
 
   return (

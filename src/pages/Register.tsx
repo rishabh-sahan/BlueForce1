@@ -36,30 +36,23 @@ const Register = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
-      return;
-    }
-    
     setIsLoading(true);
     setError('');
 
-    // Simulate registration process
-    setTimeout(() => {
-      try {
-        registerUser({
-          name: formData.name,
-          email: formData.email,
-        });
-        
-        setIsLoading(false);
-        navigate('/login');
-      } catch (err) {
-        setIsLoading(false);
-        setError((err as Error).message);
-      }
-    }, 800);
+    try {
+      // Register user with minimal data
+      registerUser({
+        name: formData.name,
+        email: formData.email,
+        type: 'worker' // Default type
+      });
+      
+      setIsLoading(false);
+      navigate('/login');
+    } catch (err) {
+      setIsLoading(false);
+      setError((err as Error).message);
+    }
   };
 
   return (
@@ -83,7 +76,7 @@ const Register = () => {
             className="py-4 px-6"
           >
             <h2 className="text-2xl font-bold text-white">{t('auth.register')}</h2>
-            <p className="text-blue-100 mt-1 text-sm">Create your BlueForce account</p>
+            <p className="text-blue-100 mt-1 text-sm">{t('register.createAccount')}</p>
           </motion.div>
           
           <div className="p-6">
@@ -100,7 +93,7 @@ const Register = () => {
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
-                  Full Name
+                  {t('register.fullName')}
                 </label>
                 <motion.input
                   whileFocus={{ scale: 1.01 }}
@@ -196,7 +189,7 @@ const Register = () => {
                 ) : (
                   <UserPlus className="h-5 w-5 mr-2" />
                 )}
-                {isLoading ? 'Registering...' : t('auth.register')}
+                {isLoading ? t('register.registering') : t('auth.register')}
               </motion.button>
             </form>
             
