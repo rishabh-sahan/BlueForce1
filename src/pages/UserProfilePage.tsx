@@ -3,11 +3,8 @@ import { useAuth } from '../contexts/AuthContext';
 import { UserProfile, WorkerProfile, EmployerProfile } from '../types/user';
 import { motion } from 'framer-motion';
 import { 
-  User, 
   Briefcase, 
   Star, 
-  Calendar, 
-  MapPin, 
   Phone, 
   Mail, 
   Edit2,
@@ -20,8 +17,8 @@ import {
 const UserProfilePage: React.FC = () => {
   const { currentUser } = useAuth();
   const [activeTab, setActiveTab] = useState<'profile' | 'jobs' | 'bookings'>('profile');
-  const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     if (currentUser) {

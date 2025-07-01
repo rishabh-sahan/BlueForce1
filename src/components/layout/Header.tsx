@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getCurrentUser, logoutUser } from '../../services/authService';
 import { useTranslation } from 'react-i18next';
-import { ChevronDown, Globe, LogOut, Menu, User, X } from 'lucide-react';
+import { ChevronDown, LogOut, Menu, User, X } from 'lucide-react';
 import LanguageSwitcher from '../LanguageSwitcher';
 
 const Header = () => {
@@ -34,11 +34,6 @@ const Header = () => {
     setIsLoggedIn(false);
     navigate('/');
   };
-
-  const faqs = [
-    { question: t('home.faq.q1'), answer: t('home.faq.a1') },
-    // ...
-  ];
 
   return (
     <header className="bg-blue-700 text-white shadow-md">

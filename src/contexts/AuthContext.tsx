@@ -25,7 +25,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const login = async (email: string, password: string) => {
+  const login = async () => {
     try {
       setError(null);
       setLoading(true);
@@ -52,12 +52,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  const register = async (
-    email: string,
-    password: string,
-    role: UserRole,
-    userData: Partial<UserProfile>
-  ) => {
+  const register = async () => {
     try {
       setError(null);
       setLoading(true);
