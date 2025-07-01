@@ -3,9 +3,6 @@ import { useAuth } from '../../contexts/AuthContext';
 import { UserProfile } from '../../types/user';
 
 const AdminDashboard = () => {
-  const { currentUser } = useAuth();
-  const [pendingUsers, setPendingUsers] = useState<UserProfile[]>([]);
-  const [approvedUsers, setApprovedUsers] = useState<UserProfile[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

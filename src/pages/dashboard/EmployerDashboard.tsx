@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { EmployerProfile } from '../../types/user';
 
 const EmployerDashboard = () => {
-  const [profile, setProfile] = useState<EmployerProfile | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState('overview');
   const [searchQuery, setSearchQuery] = useState('');
 

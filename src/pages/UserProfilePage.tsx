@@ -18,7 +18,6 @@ const UserProfilePage: React.FC = () => {
   const { currentUser } = useAuth();
   const [activeTab, setActiveTab] = useState<'profile' | 'jobs' | 'bookings'>('profile');
   const [profile, setProfile] = useState<UserProfile | null>(null);
-  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     if (currentUser) {
