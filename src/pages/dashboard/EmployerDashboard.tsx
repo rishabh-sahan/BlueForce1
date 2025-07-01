@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 const EmployerDashboard = () => {
-  const [profile, setProfile] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [profile] = useState<any>(null);
+  const [loading] = useState(false);
+  const [error] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState('overview');
   const [searchQuery, setSearchQuery] = useState('');
 
