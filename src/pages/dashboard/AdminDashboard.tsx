@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { useAuth } from '../../contexts/AuthContext';
-import { UserProfile } from '../../types/user';
+import React, { useState } from 'react';
 
 const AdminDashboard = () => {
+  const [pendingUsers, setPendingUsers] = useState<any[]>([]);
+  const [approvedUsers, setApprovedUsers] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -60,7 +60,7 @@ const AdminDashboard = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {pendingUsers.map((user) => (
+              {pendingUsers.map((user: any) => (
                 <tr key={user.uid}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     {user.firstName} {user.lastName}
@@ -102,7 +102,7 @@ const AdminDashboard = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {approvedUsers.map((user) => (
+              {approvedUsers.map((user: any) => (
                 <tr key={user.uid}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     {user.firstName} {user.lastName}

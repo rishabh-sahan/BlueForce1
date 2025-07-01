@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useAuth } from '../../contexts/AuthContext';
+import { useState } from 'react';
 import { WorkerProfile } from '../../types/user';
 
 const WorkerDashboard = () => {

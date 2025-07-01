@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { EmployerProfile } from '../../types/user';
 
 const EmployerDashboard = () => {
+  const [profile, setProfile] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState('overview');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -79,7 +81,7 @@ const EmployerDashboard = () => {
               <p className="text-gray-500">No active projects found.</p>
             ) : (
               <div className="space-y-4">
-                {profile?.projects.map((project, index) => (
+                {profile?.projects.map((project: string, index: number) => (
                   <div key={index} className="border rounded-lg p-4">
                     <h3 className="font-semibold">{project}</h3>
                   </div>
