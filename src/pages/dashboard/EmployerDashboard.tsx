@@ -3,7 +3,6 @@ import { useAuth } from '../../contexts/AuthContext';
 import { EmployerProfile } from '../../types/user';
 
 const EmployerDashboard = () => {
-  const { currentUser } = useAuth();
   const [profile, setProfile] = useState<EmployerProfile | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

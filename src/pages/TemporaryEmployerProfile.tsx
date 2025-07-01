@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Building, 
@@ -16,7 +15,6 @@ import {
 } from 'lucide-react';
 
 const TemporaryEmployerProfile = () => {
-  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('overview');
 
   // Dummy data for demonstration

@@ -97,8 +97,7 @@ const EmployerProfile = () => {
       const updatedUser = await updateUserProfile(currentUser.id, {
         name: formData.companyName,
         type: 'employer',
-        location: formData.location,
-        companyType: formData.businessType
+        location: formData.location
       });
 
       if (!updatedUser) {

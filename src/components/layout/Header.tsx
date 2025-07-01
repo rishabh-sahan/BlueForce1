@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 import { getCurrentUser, logoutUser } from '../../services/authService';
 import { useTranslation } from 'react-i18next';
 import { ChevronDown, Globe, LogOut, Menu, User, X } from 'lucide-react';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 const Header = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   
   useEffect(() => {
@@ -29,21 +29,16 @@ const Header = () => {
     }
   }, [i18n]);
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-    try {
-      localStorage.setItem('preferredLanguage', lng);
-    } catch (error) {
-      console.warn('Could not save language preference:', error);
-    }
-    setIsLangDropdownOpen(false);
-  };
-  
   const handleLogout = () => {
     logoutUser();
     setIsLoggedIn(false);
     navigate('/');
   };
+
+  const faqs = [
+    { question: t('home.faq.q1'), answer: t('home.faq.a1') },
+    // ...
+  ];
 
   return (
     <header className="bg-blue-700 text-white shadow-md">
@@ -75,38 +70,8 @@ const Header = () => {
           {/* Right side elements */}
           <div className="hidden md:flex items-center space-x-4">
             {/* Language Selector */}
-            <div className="relative">
-              <button 
-                onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-                className="flex items-center text-white hover:text-blue-200 focus:outline-none"
-              >
-                <Globe size={18} className="mr-1" />
-                {i18n.language === 'hi' ? 'हिंदी' : i18n.language === 'kn' ? 'ಕನ್ನಡ' : 'English'}
-                <ChevronDown className="ml-1 w-4 h-4" />
-              </button>
-              {isLangDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-md z-10">
-                  <button
-                    onClick={() => changeLanguage('en')}
-                    className={`block w-full text-left px-4 py-2 hover:bg-blue-50 text-gray-700 text-sm flex items-center ${i18n.language === 'en' ? 'font-bold' : ''}`}
-                  >
-                    English {i18n.language === 'en' && <span className="ml-2">✓</span>}
-                  </button>
-                  <button
-                    onClick={() => changeLanguage('hi')}
-                    className={`block w-full text-left px-4 py-2 hover:bg-blue-50 text-gray-700 text-sm flex items-center ${i18n.language === 'hi' ? 'font-bold' : ''}`}
-                  >
-                    हिंदी {i18n.language === 'hi' && <span className="ml-2">✓</span>}
-                  </button>
-                  <button
-                    onClick={() => changeLanguage('kn')}
-                    className={`block w-full text-left px-4 py-2 hover:bg-blue-50 text-gray-700 text-sm flex items-center ${i18n.language === 'kn' ? 'font-bold' : ''}`}
-                  >
-                    ಕನ್ನಡ {i18n.language === 'kn' && <span className="ml-2">✓</span>}
-                  </button>
-                </div>
-              )}
-            </div>
+            <LanguageSwitcher />
+            {/* End Language Selector */}
 
             {isLoggedIn ? (
               <div className="relative">
@@ -210,7 +175,7 @@ const Header = () => {
             <div className="text-sm text-white opacity-75 mb-2">Select Language:</div>
             <button
               onClick={() => {
-                changeLanguage('en');
+                i18n.changeLanguage('en');
                 setIsMenuOpen(false);
               }}
               className={`flex items-center text-white hover:text-blue-200 ${i18n.language === 'en' ? 'font-bold' : ''}`}
@@ -219,7 +184,7 @@ const Header = () => {
             </button>
             <button
               onClick={() => {
-                changeLanguage('hi');
+                i18n.changeLanguage('hi');
                 setIsMenuOpen(false);
               }}
               className={`flex items-center text-white hover:text-blue-200 ${i18n.language === 'hi' ? 'font-bold' : ''}`}
@@ -228,7 +193,7 @@ const Header = () => {
             </button>
             <button
               onClick={() => {
-                changeLanguage('kn');
+                i18n.changeLanguage('kn');
                 setIsMenuOpen(false);
               }}
               className={`flex items-center text-white hover:text-blue-200 ${i18n.language === 'kn' ? 'font-bold' : ''}`}

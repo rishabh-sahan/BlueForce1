@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Clock, Shield, Users, ChevronDown, ThumbsUp, X, MapPin, Star, User } from 'lucide-react';
+import { Clock, Shield, Users, ChevronDown, ThumbsUp, X } from 'lucide-react';
 import ImageSlider from '../components/home/ImageSlider';
 import FeatureScroll from '../components/home/FeatureScroll';
 import TestimonialScroll from '../components/home/TestimonialScroll';
